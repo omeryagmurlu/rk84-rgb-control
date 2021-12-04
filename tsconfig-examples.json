@@ -1,0 +1,14 @@
+{
+	"compilerOptions": {
+		"module": "commonjs",
+		"moduleResolution": "node",
+		"outDir": "dist-examples",
+		"strict": true,
+		"esModuleInterop": true,
+		"target": "ES2019",
+		"declaration": true,
+	},
+	"include": [
+		"examples"
+	],
+}

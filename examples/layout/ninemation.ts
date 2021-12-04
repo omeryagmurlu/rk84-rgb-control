@@ -1,10 +1,9 @@
 import { Layout, RK84Configuration } from "../../dist";
 import { delay, sendBatch } from "../common";
 
-const config = new RK84Configuration()
-const layout = Layout();
-
-;(async () => {
+export const ninemation = async () => {
+    const config = new RK84Configuration()
+    const layout = Layout();
     for (;;) {
         for (const k of [
             'q', 'w', 'e', 'd', 'c', 'x', 'z', 'a', 's', 'd',
@@ -15,4 +14,8 @@ const layout = Layout();
             await delay(10)
         }
     }
-})()
+}
+
+if (require.main === module) {
+    ninemation()
+}
