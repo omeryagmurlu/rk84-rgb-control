@@ -11,7 +11,6 @@ const layout = Layout();
             'e', 'w', 'q', 'a', 'z', 'x', 's', 'w', 'e', 'd',
             'c', 'x', 'z', 'a',
         ]) {
-            console.log('sasd')
             await sendBatch(config.fromLayout(layout.set(k, 255, 255, 255)))
             await delay(10)
         }

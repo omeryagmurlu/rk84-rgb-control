@@ -5,7 +5,7 @@ import { RGB } from "./types";
 const fill = <T>(arr: T[], len: number, val: T) => [...arr, ...Array(len - arr.length).fill(val)]
 const transpose = <T>(m: T[][]) => m[0].map((x,i) => m.map(x => x[i]))
 
-enum Persistency {
+export enum Persistency {
     Persistent, Transient
 }
 
@@ -56,7 +56,7 @@ export class RK84Configuration implements Configuration {
 
     private from = (mapped: number[]) => {
         const list = fill([
-            ...this.persistMod(), ...mapped
+            ...this.persistMod(), ...mapped.map(x => Math.round(x))
         ], RK84Configuration.CONFIG_PACKCNT * RK84Configuration.CONFIG_PACKLEN, 0)
 
         return chunk(list, RK84Configuration.CONFIG_PACKLEN)
