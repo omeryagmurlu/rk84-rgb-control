@@ -1,5 +1,5 @@
-import { Layout, RK84Configuration } from "..";
-import { delay, sendBatch } from "./common";
+import { Layout, RK84Configuration } from "../../dist";
+import { delay, sendBatch } from "../common";
 
 const config = new RK84Configuration()
 const layout = Layout();

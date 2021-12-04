@@ -1,0 +1,1 @@
+Run the examples with ts-node or compile them beforehand

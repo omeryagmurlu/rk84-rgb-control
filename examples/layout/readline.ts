@@ -1,6 +1,6 @@
-import { RK84Configuration } from "..";
-import { Layout } from "..";
-import { sendBatch } from "./common";
+import { RK84Configuration } from "../../dist";
+import { Layout } from "../../dist";
+import { sendBatch } from "../common";
 
 const readline = require('readline').createInterface({
     input: process.stdin,

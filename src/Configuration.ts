@@ -38,7 +38,7 @@ export class RK84Configuration implements Configuration {
         'pause',               null,                        null,                null,                  'up',                       'down', 
         'delete',              'home',                      'end',               'pageup',              'pagedown',                 'right', 
     ]
-    static readonly MATRIX_ROW = 8 // we use the transpose of above
+    static readonly MATRIX_ROW = 6 // we use the transpose of above
     static readonly MATRIX_COLUMN = 16
 
     private persistency: Persistency
@@ -69,6 +69,6 @@ export class RK84Configuration implements Configuration {
         const tr = transpose(matrix);
         if (tr.length !== RK84Configuration.MATRIX_COLUMN) throw new Error("wrong matrix column dimension")
 
-        return tr.flat().flat()
+        return this.from(tr.flat().flat())
     }
 } 
