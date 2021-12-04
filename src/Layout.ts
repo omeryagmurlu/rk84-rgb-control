@@ -1,7 +1,5 @@
 import cloneDeep from 'lodash.clonedeep'
-
-type Channel = number
-type RGB = [Channel, Channel, Channel]
+import { Channel, RGB } from './types'
 
 const off = (): RGB => ([0, 0, 0])
 const _layout = (): Record<string, RGB> => ({
@@ -127,39 +125,19 @@ export interface ILayout {
 
 type LayoutProcessor = (n: Record<string, RGB>) => void
 
-export const Layout = (preprocess: LayoutProcessor, afterupdate: (layout: ILayout) => void) => _Layout({ preprocess, afterupdate });
-export const ImmutableLayout = (preprocess: LayoutProcessor, afterupdate: (layout: ILayout) => void) => _Layout({immutable: true, preprocess, afterupdate });
-
+export const Layout = () => _Layout();
 const _Layout = ({
     layout: lout = _layout(),
-    immutable = false,
-    preprocess = () => {},
-    afterupdate = () => {}
 }: {
     layout?: Record<string, RGB>;
-    immutable?: boolean;
-    preprocess?: LayoutProcessor;
-    afterupdate?: (layout: ILayout) => void;
 } = {}): ILayout => {
     let self: ILayout;
     const layout = lout
 
     const _update = (fn: LayoutProcessor) => {
-        let n = layout
-        if (immutable) {
-            n = cloneDeep(layout)
-        }
-
-        // this isn't consistent (acid), but doesn't matter. It it consistent when used immutably
-        preprocess(n)
+        const n = cloneDeep(layout)
         fn(n)
-        
-        let retval = self
-        if (immutable) {
-            retval = _Layout({ layout: n, immutable, preprocess, afterupdate })
-        }
-        afterupdate(retval)
-        return retval;
+        return _Layout({ layout: n })
     }
 
     const _applyTo = (keys: string[]) => (red: Channel, green: Channel, blue: Channel) => _update(n => {

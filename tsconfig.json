@@ -5,7 +5,8 @@
 		"outDir": "dist",
 		"strict": true,
 		"esModuleInterop": true,
-		"lib": ["ES2019"]
+		"lib": ["ES2019"],
+		"declaration": true,
 	},
 	"include": [
 		"src"
