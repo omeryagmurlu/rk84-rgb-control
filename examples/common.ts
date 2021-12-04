@@ -6,7 +6,7 @@ const FIRST_BYTE = 0x0a
 const infs = HID.devices().filter(d =>
     d.vendorId === 0x258a && d.productId === 0x0059
     && d.interface === 1
-    && d.usage === 0x01 // usagePage doesn't match up with report descriptions but second one somehiow works?
+    && d.usage === 0x01 // usagePage doesn't match up with report descriptions but second one somehow works? You may need to modify this part a bit
 );
 // console.log(infs)
 const pth = infs[2].path as string;

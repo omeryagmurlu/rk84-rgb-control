@@ -5,5 +5,5 @@ export const createMatrix = (r: number, c: number): RGB[][] => Array(r).fill(Arr
 export const transpose = <T>(m: T[][]) => m[0].map((x,i) => m.map(x => x[i]))
 export const lo = (x: RGB[][]) => {
     console.clear()
-    console.log(x.map(row => row.map(x => chalk.rgb(x[0], x[1], x[2])('x')).join(" ")).join('\n'), '\n')
+    console.log(x.map(row => row.map(x => chalk.rgb(x[0], x[1], x[2])('▄')).join(" ")).join('\n'), '\n')
 }
