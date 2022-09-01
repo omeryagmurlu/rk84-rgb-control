@@ -1,5 +1,3 @@
-import { exit } from 'process';
-
 const args = process.argv.slice(2);
 
 switch(args[0]) {
@@ -9,6 +7,6 @@ switch(args[0]) {
     case "readline-hysterese": (require('./layout/readline-hysterese').readlineHysterese)(); break;
     case "ninemation": (require('./layout/ninemation').ninemation)(); break;
     case "white": (require('./layout/white').white)(); break;
-    case "break": (require('./layout/break').break)(); break;
+    case "presets": (require('./layout/presets').break)(); break;
     default: console.log('give example name as the first argument')
 }
